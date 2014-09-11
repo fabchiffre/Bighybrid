@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$worker__mra_8c.html#a5c30e22e7fb9c6f78fca445efe8277f6" title="Get the ID of a worker." alt="" coords="516,69,652,99"/>
+<area shape="rect" id="node5" href="$common__bighybrid_8c.html#a6fc60933b9eabe64a880f68eba3131cc" title="Receive a message/task from a mailbox." alt="" coords="551,229,617,259"/>
+<area shape="rect" id="node7" href="$common__bighybrid_8c.html#a2595166c31f66208384d3f194dc12dd7" title="Compare the message from a task with a string." alt="" coords="817,254,943,285"/>
+<area shape="rect" id="node9" href="$worker__mra_8c.html#a423d34a846a9eaf36a1a66c67f5f4c5a" title="Process that computes a task." alt="" coords="137,122,239,153"/>
+<area shape="rect" id="node11" href="$worker__mra_8c.html#a372c22d9788314a0b9ad4e7b887b070d" title="Get the chunk associated to a map task." alt="" coords="316,122,428,153"/>
+<area shape="rect" id="node16" href="$common__bighybrid_8c.html#a385b12669d8faf7b5cdb54c1ae597e1c" title="Send a message/task." alt="" coords="713,162,764,193"/>
+<area shape="rect" id="node22" href="$worker__mra_8c.html#acd48736e4d13a0b53b0039fe9c51a5ea" title="Copy the itermediary pairs for a reduce task." alt="" coords="299,175,445,206"/>
+<area shape="rect" id="node29" href="$worker__mra_8c.html#a7c436b0eb3bc2ed66f582c0532e32681" title="Update the amount of data produced by a mapper." alt="" coords="288,69,456,99"/>
+<area shape="rect" id="node14" href="$common__bighybrid_8c.html#a305ac8e3389f94106990aa3c52c91416" title="Send a short message, of size zero." alt="" coords="527,122,641,153"/>
+<area shape="rect" id="node19" href="$common__bighybrid_8c.html#a17b262d1619d68c51081400247c46016" title="mrsg_message_is" alt="" coords="813,162,947,193"/>
+<area shape="rect" id="node25" href="$common__bighybrid_8c.html#a8205e98d4874b7e31f138d5016ad1eba" title="Return the input size of a reduce task." alt="" coords="504,175,664,206"/>
+</map>

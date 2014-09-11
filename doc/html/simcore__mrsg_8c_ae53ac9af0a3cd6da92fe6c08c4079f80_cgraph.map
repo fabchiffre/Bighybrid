@@ -1,0 +1,29 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$simcore__mrsg_8c.html#af81134fe066972d77bc02a9f528d041b" title="Read the MapReduce configuration file." alt="" coords="201,214,356,245"/>
+<area shape="rect" id="node5" href="$master__mrsg_8c.html#a44b26dfb2e22cfd31085aba6df13a25b" title="Main master function." alt="" coords="229,318,328,349"/>
+<area shape="rect" id="node17" href="$simcore__bighybrid_8c.html#aea3bc3b96c3603289c25ce693b2e830d" title="Main worker function." alt="" coords="461,5,560,35"/>
+<area shape="rect" id="node50" href="$simcore__mrsg_8c.html#a15578dc81b72513cfbc9f4b0e0312eda" title="Initialize the MapReduce configuration." alt="" coords="209,663,348,694"/>
+<area shape="rect" id="node62" href="$simcore__mrsg_8c.html#a73e50db567f4a57ebe90e5c71e113b61" title="Free allocated memory for global variables." alt="" coords="197,717,360,747"/>
+<area shape="rect" id="node7" href="$worker__mrsg_8c.html#ac1e551279c5884a0fc7ca81153deac36" title="The heartbeat loop." alt="" coords="453,58,568,89"/>
+<area shape="rect" id="node15" href="$common__bighybrid_8c.html#a17b262d1619d68c51081400247c46016" title="mrsg_message_is" alt="" coords="1120,110,1253,141"/>
+<area shape="rect" id="node19" href="$master__mrsg_8c.html#a53d4c50f6f7e1f35d489cc05bed43fc8" title="Print the job configuration." alt="" coords="448,162,573,193"/>
+<area shape="rect" id="node21" href="$common__bighybrid_8c.html#a6fc60933b9eabe64a880f68eba3131cc" title="Receive a message/task from a mailbox." alt="" coords="477,215,544,246"/>
+<area shape="rect" id="node23" href="$worker__mrsg_8c.html#a4b2a3de75932850eb72307f6c18d40c1" title="Get the ID of a worker." alt="" coords="928,370,1072,401"/>
+<area shape="rect" id="node26" href="$master__mrsg_8c.html#a84abd07226d1639dd58f506c26c37545" title="Checks if a worker is a straggler." alt="" coords="707,318,835,349"/>
+<area shape="rect" id="node29" href="$master__mrsg_8c.html#ae03d61ebcd6b69faaef7540ffc10e4a4" title="Mark the tasks of a straggler as possible speculative tasks." alt="" coords="416,370,605,401"/>
+<area shape="rect" id="node34" href="$master__mrsg_8c.html#a84df5ba7b67178160bfce3ce4c45572d" title="Choose a map task, and send it to a worker." alt="" coords="417,423,604,454"/>
+<area shape="rect" id="node42" href="$master__mrsg_8c.html#a430c1751a26792d7664d4c2686ba4ff3" title="Choose a reduce task, and send it to a worker." alt="" coords="409,477,612,507"/>
+<area shape="rect" id="node45" href="$master__mrsg_8c.html#a4ba88956cd2e1474bfc22214cff04a96" title="Kill all copies of a task." alt="" coords="416,530,605,561"/>
+<area shape="rect" id="node47" href="$master__mrsg_8c.html#a7953ea070463353c3245fded0bc1663b" title="Print job statistics." alt="" coords="452,583,569,614"/>
+<area shape="rect" id="node9" href="$common__bighybrid_8c.html#ab5a4c02ceb90f40606c62816c672c5dd" title="Send a short message, of size zero." alt="" coords="711,58,831,89"/>
+<area shape="rect" id="node11" href="$common__bighybrid_8c.html#a385b12669d8faf7b5cdb54c1ae597e1c" title="Send a message/task." alt="" coords="975,58,1025,89"/>
+<area shape="rect" id="node13" href="$common__bighybrid_8c.html#a2595166c31f66208384d3f194dc12dd7" title="Compare the message from a task with a string." alt="" coords="1124,57,1249,87"/>
+<area shape="rect" id="node32" href="$master__mrsg_8c.html#adc329f1938e0a9e4f4b44e375ade3387" title="Returns for how long a task is running." alt="" coords="685,422,856,453"/>
+<area shape="rect" id="node37" href="$dfs__mrsg_8c.html#aaecad77ba100be8ed87adfedbb63fe78" title="Choose a random DataNode that owns a specific chunk." alt="" coords="661,526,880,557"/>
+<area shape="rect" id="node39" href="$master__mrsg_8c.html#a3b76d6a436cf0e7b059d62851a654539" title="Send a task to a worker." alt="" coords="711,579,831,610"/>
+<area shape="rect" id="node52" href="$simcore__mrsg_8c.html#af077f3c08925c9a08c6bf0f173b6b29c" title="Initialize the config structure." alt="" coords="452,637,569,667"/>
+<area shape="rect" id="node56" href="$simcore__mrsg_8c.html#ac1eef1094bea0744cef37b4ed75b586f" title="Initialize the stats structure." alt="" coords="456,690,565,721"/>
+<area shape="rect" id="node58" href="$simcore__mrsg_8c.html#a824a899311029bd4c452c52613a6b9ee" title="Initialize the job structure." alt="" coords="461,743,560,774"/>
+<area shape="rect" id="node60" href="$dfs__mrsg_8c.html#a6071594c683525ac325ef029d0c89b9e" title="Distribute chunks (and replicas) to DataNodes." alt="" coords="437,797,584,827"/>
+<area shape="rect" id="node54" href="$common__bighybrid_8c.html#a19bf63db11612a2c5c466b3538442b9c" title="mrsg_maxval" alt="" coords="720,637,821,667"/>
+</map>

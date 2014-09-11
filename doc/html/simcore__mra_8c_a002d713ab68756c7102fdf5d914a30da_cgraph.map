@@ -1,0 +1,31 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$simcore__mra_8c.html#a926867fcb6aaa2dcdd4f4a7ea5607a59" title="Check if the user configuration is sound." alt="" coords="145,398,276,429"/>
+<area shape="rect" id="node5" href="$simcore__mra_8c.html#a35d3431ac28f0898e832ac8683358a02" title="run_mra_simulation" alt="" coords="143,451,279,482"/>
+<area shape="rect" id="node7" href="$simcore__mra_8c.html#a88af1c2716456427567c196ae8d35387" title="Read the MapReduce configuration file." alt="" coords="333,265,480,295"/>
+<area shape="rect" id="node9" href="$master__mra_8c.html#afc38789b94eade9a7b1c6ae97a784af1" title="Main master function." alt="" coords="360,318,453,349"/>
+<area shape="rect" id="node52" href="$simcore__bighybrid_8c.html#a3f18ef8503f272839fc15596ace82344" title="Main worker function." alt="" coords="360,451,453,482"/>
+<area shape="rect" id="node54" href="$simcore__mra_8c.html#a266ca80d5d7ee9e58dab08f8d7044bf6" title="Initialize the MapReduce configuration." alt="" coords="340,611,473,642"/>
+<area shape="rect" id="node66" href="$simcore__mra_8c.html#a03e19a36bc82e880b5e652b2967f2721" title="Free allocated memory for global variables." alt="" coords="329,665,484,695"/>
+<area shape="rect" id="node11" href="$worker__mra_8c.html#a4d9e463f6550447d1fc574ff261b9473" title="The mra_heartbeat loop." alt="" coords="579,6,685,37"/>
+<area shape="rect" id="node17" href="$common__bighybrid_8c.html#a2595166c31f66208384d3f194dc12dd7" title="Compare the message from a task with a string." alt="" coords="1228,58,1353,89"/>
+<area shape="rect" id="node21" href="$master__mra_8c.html#a35e18876ff26f7fe749fe4aeba3a7208" title="Print the job configuration." alt="" coords="573,110,691,141"/>
+<area shape="rect" id="node23" href="$common__bighybrid_8c.html#a6fc60933b9eabe64a880f68eba3131cc" title="Receive a message/task from a mailbox." alt="" coords="599,163,665,194"/>
+<area shape="rect" id="node25" href="$worker__mra_8c.html#a5c30e22e7fb9c6f78fca445efe8277f6" title="Get the ID of a worker." alt="" coords="1039,318,1175,349"/>
+<area shape="rect" id="node28" href="$master__mra_8c.html#a9edca9f9a0027e689c35a1c7f8cd5c27" title="is_straggler_mra" alt="" coords="823,266,945,297"/>
+<area shape="rect" id="node31" href="$master__mra_8c.html#a66bc751f4133e1c37fda7fa99b62a291" title="set_mra_speculative_tasks" alt="" coords="540,318,724,349"/>
+<area shape="rect" id="node37" href="$master__mra_8c.html#a54a5360a29540b0302528bf7c22af577" title="Choose a map task, and send it to a worker." alt="" coords="541,371,723,402"/>
+<area shape="rect" id="node45" href="$master__mra_8c.html#a11c1ba3e81b04f147dddbfcc637ffd1f" title="Choose a reduce task, and send it to a worker." alt="" coords="533,425,731,455"/>
+<area shape="rect" id="node48" href="$master__mra_8c.html#abb91a100f0067b79a6d171ee510df540" title="Kill all copies of a task." alt="" coords="541,478,723,509"/>
+<area shape="rect" id="node50" href="$master__mra_8c.html#ad10e64f15346eb21a4a4b2dab5ab4007" title="Print job statistics." alt="" coords="577,531,687,562"/>
+<area shape="rect" id="node13" href="$common__bighybrid_8c.html#a305ac8e3389f94106990aa3c52c91416" title="Send a short message, of size zero." alt="" coords="827,6,941,37"/>
+<area shape="rect" id="node15" href="$common__bighybrid_8c.html#a385b12669d8faf7b5cdb54c1ae597e1c" title="Send a message/task." alt="" coords="1081,6,1132,37"/>
+<area shape="rect" id="node19" href="$common__bighybrid_8c.html#a17b262d1619d68c51081400247c46016" title="mrsg_message_is" alt="" coords="1224,5,1357,35"/>
+<area shape="rect" id="node35" href="$master__mra_8c.html#ae022ecd66fc6b19fd3d7fad2856d8565" title="task_time_elapsed_mra" alt="" coords="801,370,967,401"/>
+<area shape="rect" id="node40" href="$dfs__mra_8c.html#a3f8eddb9dd6200115f7d88325537035e" title="Choose a random DataNode that owns a specific chunk." alt="" coords="779,474,989,505"/>
+<area shape="rect" id="node42" href="$master__mra_8c.html#a137c1dfd64d24d0c3a59960e522064bb" title="Send a task to a worker." alt="" coords="827,527,941,558"/>
+<area shape="rect" id="node56" href="$simcore__mra_8c.html#a304f53ce22aa109f079f9c3e8c521dbc" title="Initialize the config structure." alt="" coords="577,585,687,615"/>
+<area shape="rect" id="node60" href="$simcore__mra_8c.html#a09cdc84e35f029d7393f59d8f19fa06e" title="Initialize the stats structure." alt="" coords="581,638,683,669"/>
+<area shape="rect" id="node62" href="$simcore__mra_8c.html#ab6bf4d820598c4e044bd5a5430fa7047" title="Initialize the job structure." alt="" coords="585,691,679,722"/>
+<area shape="rect" id="node64" href="$dfs__mra_8c.html#a23d972ed8df40ef6ff709f57e3944042" title="Distribute chunks (and replicas) to DataNodes." alt="" coords="563,745,701,775"/>
+<area shape="rect" id="node58" href="$common__bighybrid_8c.html#a884c91ed28bb5cf3c180e4b69be18ddf" title="Return the maximum of two values." alt="" coords="836,585,932,615"/>
+</map>

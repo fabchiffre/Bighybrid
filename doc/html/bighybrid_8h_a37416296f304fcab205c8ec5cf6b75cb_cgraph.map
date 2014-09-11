@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$simcore__mra_8c.html#a002d713ab68756c7102fdf5d914a30da" title="MRA_main" alt="" coords="209,769,295,799"/>
+<area shape="rect" id="node9" href="$master__mra_8c.html#afc38789b94eade9a7b1c6ae97a784af1" title="Main master function." alt="" coords="577,317,671,347"/>
+<area shape="rect" id="node37" href="$simcore__bighybrid_8c.html#a3f18ef8503f272839fc15596ace82344" title="Main worker function." alt="" coords="577,926,671,957"/>
+<area shape="rect" id="node39" href="$simcore__bighybrid_8c.html#a926867fcb6aaa2dcdd4f4a7ea5607a59" title="check_config_mra" alt="" coords="187,1030,317,1061"/>
+<area shape="rect" id="node41" href="$simcore__bighybrid_8c.html#a35d3431ac28f0898e832ac8683358a02" title="run_mra_simulation" alt="" coords="184,1083,320,1114"/>
+<area shape="rect" id="node43" href="$simcore__mrsg_8c.html#ad9c5e01ef20705dcc5667aaf1a7ee914" title="MRSG_main" alt="" coords="203,875,301,906"/>
+<area shape="rect" id="node49" href="$master__mrsg_8c.html#a44b26dfb2e22cfd31085aba6df13a25b" title="Main master function." alt="" coords="575,767,673,798"/>
+<area shape="rect" id="node53" href="$simcore__bighybrid_8c.html#aea3bc3b96c3603289c25ce693b2e830d" title="Main worker function." alt="" coords="776,1007,875,1038"/>
+<area shape="rect" id="node74" href="$simcore__bighybrid_8c.html#af8d020ea467834ce0d304dd55cb70fd2" title="check_config_mrsg" alt="" coords="183,1137,321,1167"/>
+<area shape="rect" id="node76" href="$simcore__bighybrid_8c.html#ae53ac9af0a3cd6da92fe6c08c4079f80" title="run_mrsg_simulation" alt="" coords="180,1190,324,1221"/>
+<area shape="rect" id="node78" href="$simcore__bighybrid_8c.html#a88af1c2716456427567c196ae8d35387" title="read_mra_config_file" alt="" coords="179,1243,325,1274"/>
+<area shape="rect" id="node82" href="$simcore__bighybrid_8c.html#a266ca80d5d7ee9e58dab08f8d7044bf6" title="init_mr_mra_config" alt="" coords="185,1297,319,1327"/>
+<area shape="rect" id="node84" href="$simcore__bighybrid_8c.html#a03e19a36bc82e880b5e652b2967f2721" title="free_mra_global_mem" alt="" coords="175,1350,329,1381"/>
+<area shape="rect" id="node86" href="$simcore__bighybrid_8c.html#af81134fe066972d77bc02a9f528d041b" title="read_mrsg_config_file" alt="" coords="175,1403,329,1434"/>
+<area shape="rect" id="node90" href="$simcore__bighybrid_8c.html#a15578dc81b72513cfbc9f4b0e0312eda" title="init_mr_mrsg_config" alt="" coords="183,1457,321,1487"/>
+<area shape="rect" id="node92" href="$simcore__bighybrid_8c.html#a73e50db567f4a57ebe90e5c71e113b61" title="free_mrsg_global_mem" alt="" coords="171,1510,333,1541"/>
+<area shape="rect" id="node94" href="$simcore__bighybrid_8c.html#a304f53ce22aa109f079f9c3e8c521dbc" title="init_mra_config" alt="" coords="197,1563,307,1594"/>
+<area shape="rect" id="node96" href="$simcore__bighybrid_8c.html#a09cdc84e35f029d7393f59d8f19fa06e" title="init_mra_stats" alt="" coords="201,1617,303,1647"/>
+<area shape="rect" id="node98" href="$simcore__bighybrid_8c.html#ab6bf4d820598c4e044bd5a5430fa7047" title="init_job_mra" alt="" coords="205,1670,299,1701"/>
+<area shape="rect" id="node100" href="$dfs__mra_8c.html#a23d972ed8df40ef6ff709f57e3944042" title="Distribute chunks (and replicas) to DataNodes." alt="" coords="183,1723,321,1754"/>
+<area shape="rect" id="node102" href="$simcore__bighybrid_8c.html#af077f3c08925c9a08c6bf0f173b6b29c" title="init_mrsg_config" alt="" coords="193,1777,311,1807"/>
+<area shape="rect" id="node104" href="$simcore__bighybrid_8c.html#ac1eef1094bea0744cef37b4ed75b586f" title="init_mrsg_stats" alt="" coords="197,1830,307,1861"/>
+<area shape="rect" id="node106" href="$simcore__bighybrid_8c.html#a824a899311029bd4c452c52613a6b9ee" title="init_job_mrsg" alt="" coords="203,1883,301,1914"/>
+<area shape="rect" id="node108" href="$dfs__mrsg_8c.html#a6071594c683525ac325ef029d0c89b9e" title="Distribute chunks (and replicas) to DataNodes." alt="" coords="179,1937,325,1967"/>
+<area shape="rect" id="node110" href="$common__bighybrid_8c.html#a884c91ed28bb5cf3c180e4b69be18ddf" title="Return the maximum of two values." alt="" coords="204,1990,300,2021"/>
+<area shape="rect" id="node112" href="$common__bighybrid_8c.html#a19bf63db11612a2c5c466b3538442b9c" title="mrsg_maxval" alt="" coords="201,2043,303,2074"/>
+<area shape="rect" id="node5" href="$simcore__mra_8c.html#a926867fcb6aaa2dcdd4f4a7ea5607a59" title="Check if the user configuration is sound." alt="" coords="388,715,519,746"/>
+<area shape="rect" id="node7" href="$simcore__mra_8c.html#a35d3431ac28f0898e832ac8683358a02" title="run_mra_simulation" alt="" coords="385,769,521,799"/>
+<area shape="rect" id="node11" href="$worker__mra_8c.html#a4d9e463f6550447d1fc574ff261b9473" title="The mra_heartbeat loop." alt="" coords="772,5,879,35"/>
+<area shape="rect" id="node13" href="$master__mra_8c.html#a35e18876ff26f7fe749fe4aeba3a7208" title="Print the job configuration." alt="" coords="767,58,884,89"/>
+<area shape="rect" id="node15" href="$common__bighybrid_8c.html#a6fc60933b9eabe64a880f68eba3131cc" title="Receive a message/task from a mailbox." alt="" coords="792,530,859,561"/>
+<area shape="rect" id="node17" href="$worker__mra_8c.html#a5c30e22e7fb9c6f78fca445efe8277f6" title="Get the ID of a worker." alt="" coords="1207,189,1343,219"/>
+<area shape="rect" id="node19" href="$common__bighybrid_8c.html#a2595166c31f66208384d3f194dc12dd7" title="Compare the message from a task with a string." alt="" coords="763,317,888,347"/>
+<area shape="rect" id="node21" href="$master__mra_8c.html#a9edca9f9a0027e689c35a1c7f8cd5c27" title="is_straggler_mra" alt="" coords="1005,110,1128,141"/>
+<area shape="rect" id="node24" href="$master__mra_8c.html#a66bc751f4133e1c37fda7fa99b62a291" title="set_mra_speculative_tasks" alt="" coords="733,162,917,193"/>
+<area shape="rect" id="node28" href="$master__mra_8c.html#a54a5360a29540b0302528bf7c22af577" title="Choose a map task, and send it to a worker." alt="" coords="976,214,1157,245"/>
+<area shape="rect" id="node31" href="$master__mra_8c.html#a11c1ba3e81b04f147dddbfcc637ffd1f" title="Choose a reduce task, and send it to a worker." alt="" coords="727,370,924,401"/>
+<area shape="rect" id="node33" href="$master__mra_8c.html#abb91a100f0067b79a6d171ee510df540" title="Kill all copies of a task." alt="" coords="735,423,916,454"/>
+<area shape="rect" id="node35" href="$master__mra_8c.html#ad10e64f15346eb21a4a4b2dab5ab4007" title="Print job statistics." alt="" coords="771,477,880,507"/>
+<area shape="rect" id="node45" href="$simcore__mrsg_8c.html#af8d020ea467834ce0d304dd55cb70fd2" title="Check if the user configuration is sound." alt="" coords="384,822,523,853"/>
+<area shape="rect" id="node47" href="$simcore__mrsg_8c.html#ae53ac9af0a3cd6da92fe6c08c4079f80" title="run_mrsg_simulation" alt="" coords="381,875,525,906"/>
+<area shape="rect" id="node51" href="$worker__mrsg_8c.html#ac1e551279c5884a0fc7ca81153deac36" title="The heartbeat loop." alt="" coords="768,637,883,667"/>
+<area shape="rect" id="node55" href="$master__mrsg_8c.html#a53d4c50f6f7e1f35d489cc05bed43fc8" title="Print the job configuration." alt="" coords="763,690,888,721"/>
+<area shape="rect" id="node58" href="$worker__mrsg_8c.html#a4b2a3de75932850eb72307f6c18d40c1" title="Get the ID of a worker." alt="" coords="995,821,1139,851"/>
+<area shape="rect" id="node60" href="$common__bighybrid_8c.html#a17b262d1619d68c51081400247c46016" title="mrsg_message_is" alt="" coords="759,954,892,985"/>
+<area shape="rect" id="node62" href="$master__mrsg_8c.html#a84abd07226d1639dd58f506c26c37545" title="Checks if a worker is a straggler." alt="" coords="761,794,889,825"/>
+<area shape="rect" id="node65" href="$master__mrsg_8c.html#ae03d61ebcd6b69faaef7540ffc10e4a4" title="Mark the tasks of a straggler as possible speculative tasks." alt="" coords="731,847,920,878"/>
+<area shape="rect" id="node68" href="$master__mrsg_8c.html#a84df5ba7b67178160bfce3ce4c45572d" title="Choose a map task, and send it to a worker." alt="" coords="732,901,919,931"/>
+<area shape="rect" id="node71" href="$master__mrsg_8c.html#a430c1751a26792d7664d4c2686ba4ff3" title="Choose a reduce task, and send it to a worker." alt="" coords="724,583,927,614"/>
+</map>

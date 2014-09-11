@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$simcore__bighybrid_8c.html" title="src/simcore_bighybrid.c" alt="" coords="5,166,168,197"/>
+<area shape="rect" id="node5" href="$user__mra_8c.html" title="src/user_mra.c" alt="" coords="192,166,301,197"/>
+<area shape="rect" id="node7" href="$user__mrsg_8c.html" title="src/user_mrsg.c" alt="" coords="325,166,443,197"/>
+<area shape="rect" id="node9" href="$hello__bighybrid_8c.html" title="examples/hello_bighybrid.c" alt="" coords="467,166,651,197"/>
+<area shape="rect" id="node11" href="$common__bighybrid_8h.html" title="include/common_bighybrid.h" alt="" coords="717,86,909,117"/>
+<area shape="rect" id="node13" href="$common__bighybrid_8c.html" title="src/common_bighybrid.c" alt="" coords="979,166,1144,197"/>
+<area shape="rect" id="node15" href="$dfs__mra_8c.html" title="src/dfs_mra.c" alt="" coords="1168,166,1269,197"/>
+<area shape="rect" id="node17" href="$dfs__mrsg_8c.html" title="src/dfs_mrsg.c" alt="" coords="1293,166,1403,197"/>
+<area shape="rect" id="node19" href="$master__mra_8c.html" title="src/master_mra.c" alt="" coords="1427,166,1552,197"/>
+<area shape="rect" id="node21" href="$master__mrsg_8c.html" title="src/master_mrsg.c" alt="" coords="1576,166,1707,197"/>
+<area shape="rect" id="node26" href="$worker__mra_8c.html" title="src/worker_mra.c" alt="" coords="675,166,800,197"/>
+<area shape="rect" id="node28" href="$worker__mrsg_8c.html" title="src/worker_mrsg.c" alt="" coords="824,166,955,197"/>
+</map>
