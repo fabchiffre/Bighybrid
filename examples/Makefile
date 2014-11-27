@@ -1,5 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -lpthread -g3 -O3
+CFLAGS = -Wall -g3
+#CFLAGS = -Wall -lpthread -g3 -O3
 
 INSTALL_PATH = $$HOME/simgrid-3.11.1
 INCLUDES = -I../include -I$(INSTALL_PATH)/include 

@@ -36,8 +36,9 @@ enum mrsg_phase_e {
 
 
 
-int BIGHYBRID_main (const char* plat, const char* depl, const char* conf);
+int BIGHYBRID_main (const char* plat, const char* depl, const char* conf, const char* vc_file);
 
+// MRA setup
 void MRA_user_init (void);
 
 void MRA_set_task_mra_cost_f ( double (*f)(enum mra_phase_e mra_phase, size_t tid, size_t mra_wid) );
@@ -46,6 +47,7 @@ void MRA_set_dfs_f ( void (*f)(char** mra_dfs_matrix, size_t chunks, size_t work
 
 void MRA_set_map_mra_output_f ( int (*f)(size_t mid, size_t rid) );
 
+// MRSG setup
 void MRSG_user_init (void);
 
 void MRSG_set_task_cost_f ( double (*f)(enum mrsg_phase_e mrsg_phase, size_t tid, size_t mrsg_wid) );

@@ -17,6 +17,7 @@ along with BigHybrid, MRSG and MRA++.  If not, see <http://www.gnu.org/licenses/
 
 
 #include "common_bighybrid.h"
+#include "mra_cv.h"
 #include <bighybrid.h>
 
 
@@ -211,9 +212,10 @@ int main (int argc, char* argv[])
     /* Run the MRSG simulation. */
    // mrsg_input_main = {"g5k.xml", "hello.deploy.xml", "hello_mrsg.conf"};
    
-     
-    BIGHYBRID_main ("bighyb-plat5node.xml", "d-bighyb-plat5node.xml", "bighyb-plat5node.conf");
-         
+    /* Run the BigHybrid simulation. */  
+    //BIGHYBRID_main ("bighyb-plat5node.xml", "d-bighyb-plat5node.xml", "bighyb-plat5node.conf");
+      
+    BIGHYBRID_main ("bighyb-plat5hom_15het.xml","d-bighyb-plat5hom_15het.xml","bighyb-plat5-15.conf","parse-boinc.txt");   
     return 0;
 }
 

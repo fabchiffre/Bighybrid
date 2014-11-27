@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License
 along with BigHybrid, MRSG and MRA++.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include "common_bighybrid.h"
-//#include "bighybrid.h"
 
 
 XBT_LOG_EXTERNAL_DEFAULT_CATEGORY (msg_test);
@@ -112,7 +111,7 @@ size_t map_mra_output_size (size_t mid)
     
     for (rid = 0; rid < config_mra.amount_of_tasks_mra[MRA_REDUCE]; rid++)
     {
-	sum += ((user_mra.map_mra_output_f (mid, rid))/config_mra.Fg);
+	sum += (user_mra.map_mra_output_f (mid, rid));
 	  }
 	    
     return sum;
@@ -143,7 +142,7 @@ size_t reduce_mra_input_size (size_t rid)
 
     for (mid = 0; mid < config_mra.amount_of_tasks_mra[MRA_MAP]; mid++)
     {
-	sum += ((user_mra.map_mra_output_f (mid, rid))/config_mra.Fg);
+	sum += (user_mra.map_mra_output_f (mid, rid));
     }
   XBT_INFO (" MRA_Reduce task %zu sent %zu Bytes",rid,sum); 
     return sum;
@@ -158,6 +157,6 @@ size_t reduce_mrsg_input_size (size_t rid)
     {
 	sum += user_mrsg.map_output_f (mid, rid);
     }
-  XBT_INFO (" Reduce task %zu sent %zu Bytes",rid,sum);
+  XBT_INFO (" MRSG_Reduce task %zu sent %zu Bytes",rid,sum);
     return sum;
 }

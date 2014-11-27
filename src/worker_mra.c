@@ -15,15 +15,20 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with BigHybrid, MRSG and MRA++.  If not, see <http://www.gnu.org/licenses/>. */
 
-
+#include	<stdio.h>
+#include	<math.h>
 #include "common_bighybrid.h"
 #include "dfs_mra.h"
 #include "worker_mra.h"
+#include "mra_cv.h"
+#include "xbt/log.h"
+#include "xbt/asserts.h"
 
 
 XBT_LOG_EXTERNAL_DEFAULT_CATEGORY (msg_test);
 
 static void mra_heartbeat (void);
+static int mra_vc_sleep_f (size_t my_id, double vc_time_stamp);
 static int listen_mra (int argc, char* argv[]);
 static int compute_mra (int argc, char* argv[]);
 static void update_mra_map_output (msg_host_t worker, size_t mid);
@@ -70,13 +75,103 @@ int worker_mra (int argc, char* argv[])
  * @brief  The mra_heartbeat loop.
  */
 static void mra_heartbeat (void)
+{   
+   	double vc_time_sleep;
+    size_t       my_id;
+  
+    my_id = get_mra_worker_id (MSG_host_self ());
+    //XBT_INFO ("Work_ID %zd \n", my_id);																			
+    while (!job_mra.finished)
+    {	
+    
+      send_mra_sms (SMS_HEARTBEAT_MRA, MASTER_MRA_MAILBOX);
+			mra_vc_sleep_f (my_id, MSG_get_clock ());
+			vc_time_sleep = vc_traces_time;
+			MSG_process_sleep (vc_time_sleep);				
+    } 
+
+/*  loop
+static void mra_heartbeat (void)
 {
     while (!job_mra.finished)
     {
 	send_mra_sms (SMS_HEARTBEAT_MRA, MASTER_MRA_MAILBOX);
 	MSG_process_sleep (config_mra.mra_heartbeat_interval);
     }
+}*/  
 }
+
+/**
+ * @brief  Volatility function from the traces file..
+ */
+static int mra_vc_sleep_f (size_t my_id, double vc_time_stamp)
+{   
+   int j=0; 
+   int i=0;
+   int hosts_vc_traces;
+   int mra_vc_job_hosts;
+              
+    /* Number of hosts from trace archive*/
+    hosts_vc_traces = vc_node[config_mra_vc_file_line[0]][0];         
+    /*Number of volatile hosts defined by user. The result is saved on element array config_mra_vc_file_line[1]*/
+    mra_vc_job_hosts = (int)(ceil(config_mra.mra_number_of_workers * (double)config_mra.perc_vc_node/100)) ;
+    config_mra_vc_file_line[1] = mra_vc_job_hosts;
+    if ( my_id > hosts_vc_traces && mra_vc_job_hosts > hosts_vc_traces ){
+    XBT_INFO ("Atention - Number of volatile host %d, in log file is insufficient to simulation \n", hosts_vc_traces);
+    return 0;
+   
+    } 
+    
+    if ( my_id < config_mra_vc_file_line[1]) 
+    		{
+        	for (i=0; i < config_mra_vc_file_line[0] ; i++)
+        	    	{  
+        	    	  if ((my_id + 1 == vc_node[i][0]) && my_id < mra_vc_job_hosts ) 
+        	    	  {
+        	    	  	j=i;
+                  	while ((j < config_mra_vc_file_line[0] )) 
+                  	{
+                      if (vc_time_stamp >= vc_start[j][0] && vc_time_stamp <= vc_end[j][0])
+                    		{
+                      		if (vc_type[j][0] == 1)
+                      			{
+                        			vc_traces_time = config_mra.mra_heartbeat_interval;
+                        		
+                        			job_mra.mra_heartbeats[my_id].wid_timestamp = MSG_get_clock ();
+                        		//XBT_INFO (" Volat_node %zd ON - Traces_time %g, Hearbeat %Lg \n",my_id,vc_traces_time, job_mra.mra_heartbeats[my_id].wid_timestamp);             				
+                        			return vc_traces_time;
+                        			break;
+                      			}
+                      		else
+                      			{
+                       				vc_traces_time = (vc_end[j][0] - vc_time_stamp);
+                       				if (config_mra.mra_heartbeat_interval < vc_traces_time) 
+                       					{
+                       						job_mra.mra_heartbeats[my_id].wid_timestamp = MSG_get_clock ();
+                                }         
+                       			//XBT_INFO (" Volat_node %zd OFF - Traces_time %g, Hearbeat %Lg \n", my_id,vc_traces_time, job_mra.mra_heartbeats[my_id].wid_timestamp);	
+                       				return vc_traces_time;
+                       				break;
+                      			}
+                    		}
+	                     j++;
+                     } 
+                   }
+    			      }
+    		}
+    else  
+      	{
+       	 	vc_traces_time = config_mra.mra_heartbeat_interval;
+       	 	job_mra.mra_heartbeats[my_id].wid_timestamp = MSG_get_clock ();
+       		//XBT_INFO (" Host %zd ON - Traces_time %g, Hearbeat %Lg \n", my_id, vc_traces_time, job_mra.mra_heartbeats[my_id].wid_timestamp);
+    		}
+    return vc_traces_time;
+ 
+   
+}
+
+
+
 
 /**
  * @brief  Process that listens for tasks.
@@ -123,15 +218,20 @@ static int compute_mra (int argc, char* argv[])
     mra_task = (msg_task_t) MSG_process_get_data (MSG_process_self ());
     ti = (mra_task_info_t) MSG_task_get_data (mra_task);
     ti->mra_pid = MSG_process_self_PID ();
-
+		
+		
     switch (ti->mra_phase)
     {
 	case MRA_MAP:
 	    get_mra_chunk (ti);
+	    mra_task_ftm[ti->mra_tid].mra_ft_pid[MRA_MAP] = ti->mra_pid;
+	    //XBT_INFO ("INFO:Processo Map %d - Tarefa %zd", mra_task_ftm[ti->mra_tid].mra_ft_pid[MRA_MAP], ti->mra_tid );
 	    break;
 
 	case MRA_REDUCE:
 	    get_mra_map_output (ti);
+	    mra_task_ftm[ti->mra_tid].mra_ft_pid[MRA_REDUCE] = ti->mra_pid;
+	    //XBT_INFO ("INFO:Processo Reduce %d - Tarefa %zd", mra_task_ftm[ti->mra_tid].mra_ft_pid[MRA_REDUCE],ti->mra_tid );
 	    break;
     }
 

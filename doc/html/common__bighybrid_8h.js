@@ -1,5 +1,18 @@
 var common__bighybrid_8h =
 [
+    [ "mra_dist_mang_s", "structmra__dist__mang__s.html", "structmra__dist__mang__s" ],
+    [ "mra_heartbeat_s", "structmra__heartbeat__s.html", "structmra__heartbeat__s" ],
+    [ "mra_config_s", "structmra__config__s.html", "structmra__config__s" ],
+    [ "mra_job_s", "structmra__job__s.html", "structmra__job__s" ],
+    [ "mra_task_info_s", "structmra__task__info__s.html", "structmra__task__info__s" ],
+    [ "mra_stats_s", "structmra__stats__s.html", "structmra__stats__s" ],
+    [ "mra_user_s", "structmra__user__s.html", "structmra__user__s" ],
+    [ "mrsg_heartbeat_s", "structmrsg__heartbeat__s.html", "structmrsg__heartbeat__s" ],
+    [ "mrsg_config_s", "structmrsg__config__s.html", "structmrsg__config__s" ],
+    [ "mrsg_job_s", "structmrsg__job__s.html", "structmrsg__job__s" ],
+    [ "mrsg_task_info_s", "structmrsg__task__info__s.html", "structmrsg__task__info__s" ],
+    [ "mrsg_stats_s", "structmrsg__stats__s.html", "structmrsg__stats__s" ],
+    [ "mrsg_user_s", "structmrsg__user__s.html", "structmrsg__user__s" ],
     [ "DATANODE_MRA_MAILBOX", "common__bighybrid_8h.html#a03ecfabdf95bb7456f21bcd120c76665", null ],
     [ "DATANODE_MRSG_MAILBOX", "common__bighybrid_8h.html#aa277e2cb88a0a2963beb1c09f7110525", null ],
     [ "MAILBOX_ALIAS_SIZE", "common__bighybrid_8h.html#afaa0d742cbc433ed6d7dbb10dfd94670", null ],
@@ -31,8 +44,20 @@ var common__bighybrid_8h =
     [ "mra_task_info_t", "common__bighybrid_8h.html#ab80ecf74b0206d6bee8b1e7a4afcb56c", null ],
     [ "mrsg_heartbeat_t", "common__bighybrid_8h.html#adef535e9de5aae49d346502667b2086f", null ],
     [ "mrsg_task_info_t", "common__bighybrid_8h.html#a5c3ae0276ba637f0660bde2a2919b463", null ],
-    [ "mra_task_status_e", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5ee", null ],
-    [ "mrsg_task_status_e", "common__bighybrid_8h.html#a9dabaf185520361bea4ec3550a3ce824", null ],
+    [ "mra_task_status_e", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5ee", [
+      [ "T_STATUS_MRA_PENDING", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5eea107af46c195ca17124951f9da9e4516e", null ],
+      [ "T_STATUS_MRA_TIP", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5eea834ab8fd9011e98aadb58a05c2bcca7a", null ],
+      [ "T_STATUS_MRA_TIP_SLOW", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5eeaad2c0fd8c428d4848bcbfe0e338bed95", null ],
+      [ "T_STATUS_MRA_DONE", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5eea51f9b001d2b46f2aa6399622d2277520", null ],
+      [ "T_STATUS_MRA_DISP", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5eea6df07c3d4b12cf534102fe66498194c3", null ],
+      [ "T_STATUS_MRA_FAILURE", "common__bighybrid_8h.html#a4c8f935175572fe57bbc16530c87b5eeacab3c2eb0b48a90a7e4de2f4d5e8641a", null ]
+    ] ],
+    [ "mrsg_task_status_e", "common__bighybrid_8h.html#a9dabaf185520361bea4ec3550a3ce824", [
+      [ "T_STATUS_MRSG_PENDING", "common__bighybrid_8h.html#a9dabaf185520361bea4ec3550a3ce824a760a3f0f793ad855677c509dd05f83b5", null ],
+      [ "T_STATUS_MRSG_TIP", "common__bighybrid_8h.html#a9dabaf185520361bea4ec3550a3ce824ac8f1b0e44b2a3016be5667bc13ca98b7", null ],
+      [ "T_STATUS_MRSG_TIP_SLOW", "common__bighybrid_8h.html#a9dabaf185520361bea4ec3550a3ce824ad16fa185af560c0ab84a79c9efa94df7", null ],
+      [ "T_STATUS_MRSG_DONE", "common__bighybrid_8h.html#a9dabaf185520361bea4ec3550a3ce824a0f2157a0d04d8a238f744e40687d5fb9", null ]
+    ] ],
     [ "map_mra_output_size", "common__bighybrid_8h.html#a1df0d355a0754a40a7697437294d8431", null ],
     [ "map_mrsg_output_size", "common__bighybrid_8h.html#a5e757d38558250770d166316c03f7265", null ],
     [ "mra_maxval", "common__bighybrid_8h.html#a884c91ed28bb5cf3c180e4b69be18ddf", null ],
@@ -52,9 +77,9 @@ var common__bighybrid_8h =
     [ "dist_bruta", "common__bighybrid_8h.html#a25cc609dae2875ebd3e01dec54626409", null ],
     [ "job_mra", "common__bighybrid_8h.html#a6b7215a0a3b59dd51477e53e083c2304", null ],
     [ "job_mrsg", "common__bighybrid_8h.html#a6f9e056126a311498f0938ba6c23f4e3", null ],
+    [ "mra_dist_manage", "common__bighybrid_8h.html#ad509ba9a08e64980cb4c8bad7aa41d26", null ],
     [ "stats_mra", "common__bighybrid_8h.html#a7fad0a76fd0c097f908d518ba8e632c6", null ],
     [ "stats_mrsg", "common__bighybrid_8h.html#acd7abf29ba7fc4c5ad5838dc2f7f2b6a", null ],
-    [ "task_exec", "common__bighybrid_8h.html#a3643aab6c35479d8e7c2f7e46bdb04b8", null ],
     [ "user_mra", "common__bighybrid_8h.html#a77744ce689028b5172a7a16e4c9a6d2f", null ],
     [ "user_mrsg", "common__bighybrid_8h.html#a11a4c6eda86be2c7a6e84c68da27bda5", null ]
 ];

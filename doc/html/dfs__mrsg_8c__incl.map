@@ -1,6 +1,6 @@
-<map id="G" name="G">
-<area shape="rect" id="node5" href="$common__bighybrid_8h.html" title="common_bighybrid.h" alt="" coords="147,86,291,117"/>
-<area shape="rect" id="node18" href="$worker__mrsg_8h.html" title="worker_mrsg.h" alt="" coords="315,86,424,117"/>
-<area shape="rect" id="node20" href="$dfs__mrsg_8h.html" title="dfs_mrsg.h" alt="" coords="448,86,533,117"/>
-<area shape="rect" id="node14" href="$bighybrid_8h.html" title="bighybrid.h" alt="" coords="453,166,539,197"/>
+<map id="src/dfs_mrsg.c" name="src/dfs_mrsg.c">
+<area shape="rect" id="node3" href="$common__bighybrid_8h.html" title="common_bighybrid.h" alt="" coords="148,80,291,107"/>
+<area shape="rect" id="node9" href="$worker__mrsg_8h.html" title="worker_mrsg.h" alt="" coords="315,80,423,107"/>
+<area shape="rect" id="node10" href="$dfs__mrsg_8h.html" title="dfs_mrsg.h" alt="" coords="447,80,533,107"/>
+<area shape="rect" id="node7" href="$bighybrid_8h.html" title="bighybrid.h" alt="" coords="457,155,542,181"/>
 </map>

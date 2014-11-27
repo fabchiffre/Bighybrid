@@ -28,18 +28,16 @@ along with BigHybrid, MRSG and MRA++.  If not, see <http://www.gnu.org/licenses/
 /** @brief  Initialize dist_bruta, task_exec, avg_task_exec. */
 
 int*        dist_bruta;
-double*     task_exec;
 double*     avg_task_exec_map;
 double*     avg_task_exec_reduce;
-//int					Fg;
-//float      	mra_perc;
-//float   	  mrsg_perc;
+
 
 
 
 /* Hearbeat parameters. */
 #define MRA_HEARTBEAT_MIN_INTERVAL 3
 #define MRSG_HEARTBEAT_MIN_INTERVAL 3
+
 #define MRA_HEARTBEAT_TIMEOUT 600
 #define MRSG_HEARTBEAT_TIMEOUT 600
 
@@ -47,14 +45,19 @@ double*     avg_task_exec_reduce;
 /* Short message names. */
 #define SMS_GET_MRA_CHUNK "SMS-MRA-GC"
 #define SMS_GET_MRSG_CHUNK "SMS-MRSG-GC"
+
 #define SMS_GET_INTER_MRA_PAIRS "SMS-MRA-GIP"
 #define SMS_GET_INTER_MRSG_PAIRS "SMS-MRSG-GIP"
+
 #define SMS_HEARTBEAT_MRA "SMS-MRA-HB"
 #define SMS_HEARTBEAT_MRSG "SMS-MRSG-HB"
+
 #define SMS_TASK_MRA "SMS-MRA-T"
 #define SMS_TASK_MRSG "SMS-MRSG-T"
+
 #define SMS_TASK_MRA_DONE "SMS-MRA-TD"
 #define SMS_TASK_MRSG_DONE "SMS-MRSG-TD"
+
 #define SMS_FINISH_MRA "SMS-MRA-F"
 #define SMS_FINISH_MRSG "SMS-MRSG-F"
 
@@ -63,31 +66,52 @@ double*     avg_task_exec_reduce;
 
 /* Mailbox related. */
 #define MAILBOX_ALIAS_SIZE 256
+
 #define MASTER_MRA_MAILBOX "MASTER_MRA"
 #define MASTER_MRSG_MAILBOX "MASTER_MRSG"
+
 #define DATANODE_MRA_MAILBOX "%zu:MRADN"
 #define DATANODE_MRSG_MAILBOX "%zu:MRSGDN"
+
 #define TASKTRACKER_MRA_MAILBOX "%zu:MRATT"
 #define TASKTRACKER_MRSG_MAILBOX "%zu:MRSGTT"
+
 #define TASK_MRA_MAILBOX "%zu:%d"
 #define TASK_MRSG_MAILBOX "%zu:%d"
 
-/** @brief  Possible task status. */
+/** @brief  Possible MRA task status. */
 enum mra_task_status_e {
     /* The initial status must be the first enum. */
     T_STATUS_MRA_PENDING,
     T_STATUS_MRA_TIP,
     T_STATUS_MRA_TIP_SLOW,
-    T_STATUS_MRA_DONE
+    T_STATUS_MRA_DONE,
+    T_STATUS_MRA_DISP,
+    T_STATUS_MRA_FAILURE
 };
 
-/** @brief  Information sent by the workers with every heartbeat. */
+/** @brief  Possible MRSG task status. */
+enum mrsg_task_status_e {
+    /* The initial status must be the first enum. */
+    T_STATUS_MRSG_PENDING,
+    T_STATUS_MRSG_TIP,
+    T_STATUS_MRSG_TIP_SLOW,
+    T_STATUS_MRSG_DONE
+};
+
+/** @brief  Information about dist_bruta. */
+struct mra_dist_mang_s {
+			 int min_tot_dist; 
+       int max_tot_dist;
+} mra_dist_manage;
+
+/** @brief  Information sent by the workers with every mra_heartbeat. */
 struct mra_heartbeat_s {
-    int  slots_av[2];
+    int  				slots_av[2];
+    long double wid_timestamp; 
 };
 
 typedef struct mra_heartbeat_s* mra_heartbeat_t;
-
 
 struct mra_config_s {
     double         mra_chunk_size;
@@ -99,23 +123,26 @@ struct mra_config_s {
     int            amount_of_tasks_mra[2];
     int            mra_number_of_workers;
     int            mra_slots[2];
-    float          mra_perc;
-    int            Fg;
+    double         mra_perc;
+    int         	 Fg;
+    double				 perc_vc_node;
+    double         failure_timeout_conf;
     int            initialized;
     msg_host_t*    workers_mra;
 } config_mra;
 
 struct mra_job_s {
-    int           finished;
-    int           tasks_pending[2];
-    int*          task_instances[2];
-    int*          task_status[2];
-    msg_task_t**  task_list[2];
-    size_t**      map_output;
-    mra_heartbeat_t   mra_heartbeats;
+    int           	finished;
+    int           	tasks_pending[2];
+    int*          	task_instances[2];
+    int*          	task_status[2];
+    msg_task_t**  	task_list[2];
+    size_t**      	map_output;
+    mra_heartbeat_t	mra_heartbeats;
+    long double   	wid_timestamp;
 } job_mra;
 
-/** @brief  Information sent as the task data. */
+/** @brief  Information sent as the mra_task data. */
 struct mra_task_info_s {
     enum mra_phase_e  mra_phase;
     size_t        mra_tid;
@@ -136,6 +163,8 @@ struct mra_stats_s {
     int   map_spec_mra_r;
     int   reduce_mra_normal;
     int   reduce_mra_spec;
+    int   mra_map_recovery;
+    int		mra_reduce_recovery;
 } stats_mra;
 
 struct mra_user_s {
@@ -144,16 +173,9 @@ struct mra_user_s {
     int (*map_mra_output_f)(size_t mid, size_t rid);
 } user_mra;
 
-/** @brief  Possible task status. */
-enum mrsg_task_status_e {
-    /* The initial status must be the first enum. */
-    T_STATUS_MRSG_PENDING,
-    T_STATUS_MRSG_TIP,
-    T_STATUS_MRSG_TIP_SLOW,
-    T_STATUS_MRSG_DONE
-};
 
-/** @brief  Information sent by the workers with every heartbeat. */
+
+/** @brief  Information sent by the workers with every mrsg_heartbeat. */
 struct mrsg_heartbeat_s {
     int  slots_av[2];
 };
@@ -170,7 +192,7 @@ struct mrsg_config_s {
     int            amount_of_tasks_mrsg[2];
     int            mrsg_number_of_workers;
     int            mrsg_slots[2];
-    float          mrsg_perc;
+    double         mrsg_perc;
     int            initialized;
     msg_host_t*    workers_mrsg;
 } config_mrsg;
@@ -185,7 +207,7 @@ struct mrsg_job_s {
     mrsg_heartbeat_t   mrsg_heartbeats;
 } job_mrsg;
 
-/** @brief  Information sent as the task data. */
+/** @brief  Information sent as the mrsg_task data. */
 struct mrsg_task_info_s {
     enum mrsg_phase_e  mrsg_phase;
     size_t        mrsg_tid;

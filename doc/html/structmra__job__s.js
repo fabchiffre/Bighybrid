@@ -6,5 +6,6 @@ var structmra__job__s =
     [ "task_instances", "structmra__job__s.html#a3f772d834bcc31321d646b7a3f21d4f9", null ],
     [ "task_list", "structmra__job__s.html#ae58dd3bb5ba1d5937a28e413b38aeb5b", null ],
     [ "task_status", "structmra__job__s.html#af468f182bc45296289a5166cd2cf0958", null ],
-    [ "tasks_pending", "structmra__job__s.html#ae878f022b0b9150776c38d3458c68ded", null ]
+    [ "tasks_pending", "structmra__job__s.html#ae878f022b0b9150776c38d3458c68ded", null ],
+    [ "wid_timestamp", "structmra__job__s.html#ae064d8fc9d9e8a25a4e938612e019bfb", null ]
 ];
