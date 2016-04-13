@@ -22,6 +22,7 @@ along with BigHybrid, MRSG and MRA++.  If not, see <http://www.gnu.org/licenses/
 #include <xbt/sysdep.h>
 #include <xbt/log.h>
 #include <xbt/asserts.h>
+#include <xbt/RngStream.h>
 #include "bighybrid.h"
 
 
@@ -41,6 +42,8 @@ double*     avg_task_exec_reduce;
 #define MRA_HEARTBEAT_TIMEOUT 600
 #define MRSG_HEARTBEAT_TIMEOUT 600
 
+/* IO contention parameters */
+#define MRSG_IO_CONTENTION_COEF 0.15
 
 /* Short message names. */
 #define SMS_GET_MRA_CHUNK "SMS-MRA-GC"
@@ -195,6 +198,7 @@ struct mrsg_config_s {
     double         mrsg_perc;
     int            initialized;
     msg_host_t*    workers_mrsg;
+    RngStream     mrsg_IO_contention_stream;
 } config_mrsg;
 
 struct mrsg_job_s {

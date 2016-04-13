@@ -368,6 +368,20 @@ static void send_reduce_to_mrsg_worker (msg_host_t dest)
 }
 
 /**
+ * @brief   Simulate the extra cost due to the I/O contention.
+ * @param   cpu_required Base cost of the task.
+ * @return  Extra cost due to the I/O contention.
+ */
+static double simulate_io_contention(double cpu_required)
+{
+
+	/* Generate a random contention in the limits fixed by MRSG_IO_CONTENTION_COEF */
+	double c = RngStream_RandU01(config_mrsg.mrsg_IO_contention_stream) * MRSG_IO_CONTENTION_COEF * 2;
+	return (c * cpu_required);
+}
+
+
+/**
  * @brief  Send a task to a worker.
  * @param  mrsg_phase     The current job phase.
  * @param  tid       The task ID.
@@ -379,6 +393,7 @@ static void send_mrsg_task (enum mrsg_phase_e mrsg_phase, size_t tid, size_t dat
     char         mailbox[MAILBOX_ALIAS_SIZE];
     int          i;
     double       cpu_required = 0.0;
+    double		 io_contention = 0.0;
     msg_task_t   mrsg_task = NULL;
     mrsg_task_info_t  task_info;
     size_t       mrsg_wid;
@@ -386,9 +401,10 @@ static void send_mrsg_task (enum mrsg_phase_e mrsg_phase, size_t tid, size_t dat
     mrsg_wid = get_mrsg_worker_id (dest);
 
     cpu_required = user_mrsg.task_cost_f (mrsg_phase, tid, mrsg_wid);
+    io_contention = simulate_io_contention(cpu_required);
 
     task_info = xbt_new (struct mrsg_task_info_s, 1);
-    mrsg_task = MSG_task_create (SMS_TASK_MRSG, cpu_required, 0.0, (void*) task_info);
+    mrsg_task = MSG_task_create (SMS_TASK_MRSG, cpu_required + io_contention, 0.0, (void*) task_info);
 
     task_info->mrsg_phase = mrsg_phase;
     task_info->mrsg_tid = tid;

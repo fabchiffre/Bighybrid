@@ -21,6 +21,7 @@ along with BigHybrid, MRSG and MRA++.  If not, see <http://www.gnu.org/licenses/
 #include <xbt/sysdep.h>
 #include <xbt/log.h>
 #include <xbt/asserts.h>
+#include <xbt/RngStream.h>
 #include <string.h>
 
 #include "common_bighybrid.h"
@@ -526,6 +527,12 @@ static void init_mrsg_config (void)
     config_mrsg.mrsg_heartbeat_interval = mrsg_maxval (MRSG_HEARTBEAT_MIN_INTERVAL, config_mrsg.mrsg_number_of_workers / 100);
     config_mrsg.amount_of_tasks_mrsg[MRSG_MAP] = config_mrsg.mrsg_chunk_count;
     config_mrsg.initialized = 1;
+
+    /* Initialize Rng_stream used to simulate I/O contention */
+    unsigned long int contention_seed[] = {102, 33, 27, 86, 1, 392};
+    config_mrsg.mrsg_IO_contention_stream = RngStream_CreateStream(NULL);
+    RngStream_SetSeed(config_mrsg.mrsg_IO_contention_stream, contention_seed);
+
 }
 
 /**
@@ -688,6 +695,8 @@ static void free_mrsg_global_mem (void)
     xbt_free_ref (&chunk_owner_mrsg);
 
     xbt_free_ref (&config_mrsg.workers_mrsg);
+    RngStream_DeleteStream(&(config_mrsg.mrsg_IO_contention_stream));
+
     xbt_free_ref (&job_mrsg.task_status[MRSG_MAP]);
     xbt_free_ref (&job_mrsg.task_instances[MRSG_MAP]);
     xbt_free_ref (&job_mrsg.task_status[MRSG_REDUCE]);
