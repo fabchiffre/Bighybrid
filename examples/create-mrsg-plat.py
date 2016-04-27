@@ -4,14 +4,14 @@ import sys
 import string
 import random
 
-if len(sys.argv) < 7:
-	print 'Usage:', sys.argv[0], 'platform_file.xml num_workers cores_per_node_min[:numCores_max] cpu_min[:cpu_max] latency_min[:latency_max] bw_min[:bw_max]'
-	print 'Ex. Homogeneous :', sys.argv[0], 'plat.xml 5 2 1e9 1e-4 1.25e8'
-	print 'Or Heterogeneous:', sys.argv[0], 'plat-cpu_var.xml 10 2 4e9:7e9 1e-4 1.25e8'
-	print 'Or Heterogeneous:', sys.argv[0], 'plat-BW_var.xml 10 2 7e9 1e-4 1.25e6:1.25e8'
-	print 'Or Heterogeneous:', sys.argv[0], 'plat-Lat_var.xml 10 2 7e9 1e-4:1e-2 1.25e8'
-	print 'Or Heterogeneous:', sys.argv[0], 'plat-net_var.xml 10 2 7e9 1e-4:1e-2 1.25e6:1.25e8'
-	print 'Or Heterogeneous:', sys.argv[0], 'plat-ALL_var.xml 10 2 4e9:7e9 1e-4:1e-2 1.25e6:1.25e8'
+if len(sys.argv) < 8:
+	print 'Usage:', sys.argv[0], 'platform_file.xml num_workers cores_per_node_min[:numCores_max] cpu_min[:cpu_max] latency_min[:latency_max] bw_min[:bw_max] diskSize:diskBwrite:diskBRead:diskBconnection'
+	print 'Ex. Homogeneous :', sys.argv[0], 'plat.xml 5 2 1e9 1e-4 1.25e8 500GB:30MBps:100MBps:150MBps'
+	print 'Or Heterogeneous:', sys.argv[0], 'plat-cpu_var.xml 10 2 4e9:7e9 1e-4 1.25e8 500GB:30MBps:100MBps:150MBps'
+	print 'Or Heterogeneous:', sys.argv[0], 'plat-BW_var.xml 10 2 7e9 1e-4 1.25e6:1.25e8 500GB:30MBps:100MBps:150MBps'
+	print 'Or Heterogeneous:', sys.argv[0], 'plat-Lat_var.xml 10 2 7e9 1e-4:1e-2 1.25e8 500GB:30MBps:100MBps:150MBps'
+	print 'Or Heterogeneous:', sys.argv[0], 'plat-net_var.xml 10 2 7e9 1e-4:1e-2 1.25e6:1.25e8 500GB:30MBps:100MBps:150MBps'
+	print 'Or Heterogeneous:', sys.argv[0], 'plat-ALL_var.xml 10 2 4e9:7e9 1e-4:1e-2 1.25e6:1.25e8 500GB:30MBps:100MBps:150MBps'
 #	print 'Distribution_name',, sys.argv[0], 'uniform, beta, expo, gamma, gauss, logn, weibull'
 	sys.exit(1)
 
@@ -30,7 +30,7 @@ for i in range(len(latency)):
 bandwidth = string.split(sys.argv[6], ':')
 for i in range(len(bandwidth)):
 	bandwidth[i] = float(bandwidth[i])
-
+diskProperties = string.split(sys.argv[7], ':')
 
 # Header
 output = open(outFileName, 'w')
@@ -41,34 +41,30 @@ output.write('  <AS id="AS1" routing="Full">\n')
 
 random.seed()
 
+#Storage type definition.
+output.write('\n')
+output.write('\t<storage_type id="MRSG_disk_type" model="linear" size="' + diskProperties[0] +'" content="content/storage_content.txt" >\n')
+output.write('\t\t<model_prop id="Bwrite" value="' + diskProperties[1] +'" />\n')
+output.write('\t\t<model_prop id="Bread" value="' + diskProperties[2] +'" />\n')
+output.write('\t\t<model_prop id="Bconnection" value="' + diskProperties[3] + '" />\n')
+output.write('\t</storage_type>\n')
 
+
+
+#Disks definition.
+output.write('\n')
+for i in range(numNodes):
+	output.write('\t<storage id="MRSG_Disk' + str(i) + '" typeId="MRSG_disk_type" attach="MRSG_Host' + str(i) + '" />\n')
 
 # Nodes definition.
 output.write('\n')
-if len(cpu) == 1 and len(numCores) == 1:
-	for i in range(numNodes):
-		output.write('\t<host id="MRSG_Host' + str(i) + '" power="' + str(cpu[0]) + '" core="' + str(numCores[0]) + '" />\n')
+for i in range(numNodes):
+	nbCpu = cpu[0] if (len(cpu) == 1) else random.uniform(cpu[0], cpu[1])
+	nbCores = numCores[0] if (len(numCores) == 1) else  random.randrange(numCores[0], numCores[1],2)
 
- 
-elif len(numCores) == 1:
-	for i in range(numNodes):
-		rCPU = random.uniform(cpu[0], cpu[1])
-		output.write('\t<host id="MRSG_Host' + str(i) + '" power="' + str(rCPU) + '" core="' + str(numCores[0]) + '" />\n')	
-
-elif len(cpu) == 1:
-	for i in range(numNodes):
-		rCor = random.randrange(numCores[0], numCores[1],2)
-		output.write('\t<host id="MRSG_Host' + str(i) + '" power="' + str(cpu[0]) + '" core="' + str(rCor) + '" />\n')	
-
-
-else:
-	for i in range(numNodes):
-		rCPU = random.uniform(cpu[0], cpu[1])
-		rCor = random.randrange(numCores[0], numCores[1], 2)
-		output.write('\t<host id="MRSG_Host' + str(i) + '" power="' + str(rCPU) + '" core="' + str(rCor) + '" />\n')	
-
-
-
+	output.write('\t<host id="MRSG_Host' + str(i) + '" power="' + str(nbCpu) + '" core="' + str(nbCores) + '" >\n')
+	output.write('\t\t<mount storageId="MRSG_Disk' + str(i) + '" name="/" />\n')
+	output.write('\t</host>\n')
 
 # Links definition.
 output.write('\n')
