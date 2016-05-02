@@ -56,8 +56,10 @@ msg_error_t send_mrsg_sms (const char* str, const char* mailbox)
 msg_error_t receive (msg_task_t* msg, const char* mailbox)
 {
     msg_error_t  status;
-
     status = MSG_task_receive (msg, mailbox);
+
+    if(status == MSG_OK)
+        write_task_on_disk(*msg);
 
 #ifdef VERBOSE
     if (status != MSG_OK)

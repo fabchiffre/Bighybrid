@@ -133,130 +133,155 @@
   </AS>
 
   <AS id="AS2" routing="Full">
+<storage_type id="MRSG_disk_type" model="linear" size="500GB" content="content/storage_content.txt" >
+		<model_prop id="Bwrite" value="30MBps" />
+		<model_prop id="Bread" value="100MBps" />
+		<model_prop id="Bconnection" value="150MBps" />
+	</storage_type>
 
-	<host id="MRSG_Host0" power="5540000000.0" core="2" />
-	<host id="MRSG_Host1" power="5540000000.0" core="2" />
-	<host id="MRSG_Host2" power="5540000000.0" core="2" />
-	<host id="MRSG_Host3" power="5540000000.0" core="2" />
-	<host id="MRSG_Host4" power="5540000000.0" core="2" />
-	<host id="MRSG_Host5" power="5540000000.0" core="2" />
+	<storage id="MRSG_Disk0" typeId="MRSG_disk_type" attach="MRSG_Host0" />
+	<storage id="MRSG_Disk1" typeId="MRSG_disk_type" attach="MRSG_Host1" />
+	<storage id="MRSG_Disk2" typeId="MRSG_disk_type" attach="MRSG_Host2" />
+	<storage id="MRSG_Disk3" typeId="MRSG_disk_type" attach="MRSG_Host3" />
+	<storage id="MRSG_Disk4" typeId="MRSG_disk_type" attach="MRSG_Host4" />
+	<storage id="MRSG_Disk5" typeId="MRSG_disk_type" attach="MRSG_Host5" />
 
-	<link id="mrsg_l1" bandwidth="125000000.0" latency="0.0001" />
-	<link id="mrsg_l2" bandwidth="125000000.0" latency="0.0001" />
-	<link id="mrsg_l3" bandwidth="125000000.0" latency="0.0001" />
-	<link id="mrsg_l4" bandwidth="125000000.0" latency="0.0001" />
-	<link id="mrsg_l5" bandwidth="125000000.0" latency="0.0001" />
+	<host id="MRSG_Host0" power="5540000000.0" core="2" >
+		<mount storageId="MRSG_Disk0" name="/" />
+	</host>
+	<host id="MRSG_Host1" power="5540000000.0" core="2" >
+		<mount storageId="MRSG_Disk1" name="/" />
+	</host>
+	<host id="MRSG_Host2" power="5540000000.0" core="2" >
+		<mount storageId="MRSG_Disk2" name="/" />
+	</host>
+	<host id="MRSG_Host3" power="5540000000.0" core="2" >
+		<mount storageId="MRSG_Disk3" name="/" />
+	</host>
+	<host id="MRSG_Host4" power="5540000000.0" core="2" >
+		<mount storageId="MRSG_Disk4" name="/" />
+	</host>
+	<host id="MRSG_Host5" power="5540000000.0" core="2" >
+		<mount storageId="MRSG_Disk5" name="/" />
+	</host>
+
+	<link id="l1" bandwidth="125000000.0" latency="0.0001" />
+	<link id="l2" bandwidth="125000000.0" latency="0.0001" />
+	<link id="l3" bandwidth="125000000.0" latency="0.0001" />
+	<link id="l4" bandwidth="125000000.0" latency="0.0001" />
+	<link id="l5" bandwidth="125000000.0" latency="0.0001" />
 
 	<route src="MRSG_Host0" dst="MRSG_Host1">
-		<link_ctn id="mrsg_l1"/>
+		<link_ctn id="l1"/>
 	</route>
 	<route src="MRSG_Host0" dst="MRSG_Host2">
-		<link_ctn id="mrsg_l2"/>
+		<link_ctn id="l2"/>
 	</route>
 	<route src="MRSG_Host0" dst="MRSG_Host3">
-		<link_ctn id="mrsg_l3"/>
+		<link_ctn id="l3"/>
 	</route>
 	<route src="MRSG_Host0" dst="MRSG_Host4">
-		<link_ctn id="mrsg_l4"/>
+		<link_ctn id="l4"/>
 	</route>
 	<route src="MRSG_Host0" dst="MRSG_Host5">
-		<link_ctn id="mrsg_l5"/>
+		<link_ctn id="l5"/>
 	</route>
 	<route src="MRSG_Host1" dst="MRSG_Host0">
-		<link_ctn id="mrsg_l1"/>
+		<link_ctn id="l1"/>
 	</route>
 	<route src="MRSG_Host1" dst="MRSG_Host2">
-		<link_ctn id="mrsg_l1"/>
-		<link_ctn id="mrsg_l2"/>
+		<link_ctn id="l1"/>
+		<link_ctn id="l2"/>
 	</route>
 	<route src="MRSG_Host1" dst="MRSG_Host3">
-		<link_ctn id="mrsg_l1"/>
-		<link_ctn id="mrsg_l3"/>
+		<link_ctn id="l1"/>
+		<link_ctn id="l3"/>
 	</route>
 	<route src="MRSG_Host1" dst="MRSG_Host4">
-		<link_ctn id="mrsg_l1"/>
-		<link_ctn id="mrsg_l4"/>
+		<link_ctn id="l1"/>
+		<link_ctn id="l4"/>
 	</route>
 	<route src="MRSG_Host1" dst="MRSG_Host5">
-		<link_ctn id="mrsg_l1"/>
-		<link_ctn id="mrsg_l5"/>
+		<link_ctn id="l1"/>
+		<link_ctn id="l5"/>
 	</route>
 	<route src="MRSG_Host2" dst="MRSG_Host0">
-		<link_ctn id="mrsg_l2"/>
+		<link_ctn id="l2"/>
 	</route>
 	<route src="MRSG_Host2" dst="MRSG_Host1">
-		<link_ctn id="mrsg_l2"/>
-		<link_ctn id="mrsg_l1"/>
+		<link_ctn id="l2"/>
+		<link_ctn id="l1"/>
 	</route>
 	<route src="MRSG_Host2" dst="MRSG_Host3">
-		<link_ctn id="mrsg_l2"/>
-		<link_ctn id="mrsg_l3"/>
+		<link_ctn id="l2"/>
+		<link_ctn id="l3"/>
 	</route>
 	<route src="MRSG_Host2" dst="MRSG_Host4">
-		<link_ctn id="mrsg_l2"/>
-		<link_ctn id="mrsg_l4"/>
+		<link_ctn id="l2"/>
+		<link_ctn id="l4"/>
 	</route>
 	<route src="MRSG_Host2" dst="MRSG_Host5">
-		<link_ctn id="mrsg_l2"/>
-		<link_ctn id="mrsg_l5"/>
+		<link_ctn id="l2"/>
+		<link_ctn id="l5"/>
 	</route>
 	<route src="MRSG_Host3" dst="MRSG_Host0">
-		<link_ctn id="mrsg_l3"/>
+		<link_ctn id="l3"/>
 	</route>
 	<route src="MRSG_Host3" dst="MRSG_Host1">
-		<link_ctn id="mrsg_l3"/>
-		<link_ctn id="mrsg_l1"/>
+		<link_ctn id="l3"/>
+		<link_ctn id="l1"/>
 	</route>
 	<route src="MRSG_Host3" dst="MRSG_Host2">
-		<link_ctn id="mrsg_l3"/>
-		<link_ctn id="mrsg_l2"/>
+		<link_ctn id="l3"/>
+		<link_ctn id="l2"/>
 	</route>
 	<route src="MRSG_Host3" dst="MRSG_Host4">
-		<link_ctn id="mrsg_l3"/>
-		<link_ctn id="mrsg_l4"/>
+		<link_ctn id="l3"/>
+		<link_ctn id="l4"/>
 	</route>
 	<route src="MRSG_Host3" dst="MRSG_Host5">
-		<link_ctn id="mrsg_l3"/>
-		<link_ctn id="mrsg_l5"/>
+		<link_ctn id="l3"/>
+		<link_ctn id="l5"/>
 	</route>
 	<route src="MRSG_Host4" dst="MRSG_Host0">
-		<link_ctn id="mrsg_l4"/>
+		<link_ctn id="l4"/>
 	</route>
 	<route src="MRSG_Host4" dst="MRSG_Host1">
-		<link_ctn id="mrsg_l4"/>
-		<link_ctn id="mrsg_l1"/>
+		<link_ctn id="l4"/>
+		<link_ctn id="l1"/>
 	</route>
 	<route src="MRSG_Host4" dst="MRSG_Host2">
-		<link_ctn id="mrsg_l4"/>
-		<link_ctn id="mrsg_l2"/>
+		<link_ctn id="l4"/>
+		<link_ctn id="l2"/>
 	</route>
 	<route src="MRSG_Host4" dst="MRSG_Host3">
-		<link_ctn id="mrsg_l4"/>
-		<link_ctn id="mrsg_l3"/>
+		<link_ctn id="l4"/>
+		<link_ctn id="l3"/>
 	</route>
 	<route src="MRSG_Host4" dst="MRSG_Host5">
-		<link_ctn id="mrsg_l4"/>
-		<link_ctn id="mrsg_l5"/>
+		<link_ctn id="l4"/>
+		<link_ctn id="l5"/>
 	</route>
 	<route src="MRSG_Host5" dst="MRSG_Host0">
-		<link_ctn id="mrsg_l5"/>
+		<link_ctn id="l5"/>
 	</route>
 	<route src="MRSG_Host5" dst="MRSG_Host1">
-		<link_ctn id="mrsg_l5"/>
-		<link_ctn id="mrsg_l1"/>
+		<link_ctn id="l5"/>
+		<link_ctn id="l1"/>
 	</route>
 	<route src="MRSG_Host5" dst="MRSG_Host2">
-		<link_ctn id="mrsg_l5"/>
-		<link_ctn id="mrsg_l2"/>
+		<link_ctn id="l5"/>
+		<link_ctn id="l2"/>
 	</route>
 	<route src="MRSG_Host5" dst="MRSG_Host3">
-		<link_ctn id="mrsg_l5"/>
-		<link_ctn id="mrsg_l3"/>
+		<link_ctn id="l5"/>
+		<link_ctn id="l3"/>
 	</route>
 	<route src="MRSG_Host5" dst="MRSG_Host4">
-		<link_ctn id="mrsg_l5"/>
-		<link_ctn id="mrsg_l4"/>
+		<link_ctn id="l5"/>
+		<link_ctn id="l4"/>
 	</route>
+
   </AS>
   
 </AS>
