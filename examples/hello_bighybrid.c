@@ -18,10 +18,17 @@ along with BigHybrid, MRSG and MRA++.  If not, see <http://www.gnu.org/licenses/
 
 #include "common_bighybrid.h"
 #include "mra_cv.h"
+#include <xbt/RngStream.h>
 #include <bighybrid.h>
+#include <xbt/log.h> 
 
 
 void BigHybrid_init ();
+
+unsigned long int seed_map[] = {102, 33, 27, 86, 1, 392};
+unsigned long int seed_reduce[] = {2, 2, 2 ,2 ,2 ,2};
+
+RngStream stream_map = NULL;
 
 static void read_mra_config_file (const char* file_name)
 {
@@ -175,9 +182,12 @@ double mrsg_task_cost_function (enum mrsg_phase_e mrsg_phase, size_t tid, size_t
 {
     switch (mrsg_phase)
     {
-	case MRSG_MAP:
+	case MRSG_MAP:{
+        // double d =  RngStream_RandU01(stream_map);
+        // printf("Contention factor : %f\n", d);
+        // return 3e+11 * (1+d);
 	    return 3e+11;
-
+    }
 	case MRSG_REDUCE:
 	    return 5e+11;
     }
@@ -186,7 +196,8 @@ double mrsg_task_cost_function (enum mrsg_phase_e mrsg_phase, size_t tid, size_t
 
 int main (int argc, char* argv[])
 {
-
+    stream_map = RngStream_CreateStream(NULL);
+    RngStream_SetSeed(stream_map, seed_map);
 
     /* MRA_user_init must be called before setting the user functions. */
     MRA_user_init ();
@@ -213,10 +224,12 @@ int main (int argc, char* argv[])
    // mrsg_input_main = {"g5k.xml", "hello.deploy.xml", "hello_mrsg.conf"};
    
     /* Run the BigHybrid simulation. */  
-    //BIGHYBRID_main ("bighyb-plat5node.xml", "d-bighyb-plat5node.xml", "bighyb-plat5node.conf");
+    BIGHYBRID_main ("bighyb-plat5node.xml", "d-bighyb-plat5node.xml", "bighyb-plat5node.conf", "parse-boinc.txt");
       
-    BIGHYBRID_main ("bighyb-plat5hom_15het.xml","d-bighyb-plat5hom_15het.xml","bighyb-plat5-15.conf","parse-boinc.txt");   
+   // BIGHYBRID_main ("bighyb-plat5hom_15het.xml","d-bighyb-plat5hom_15het.xml","bighyb-plat5-15.conf","parse-boinc.txt"); 
+
+
+
     return 0;
 }
-
 
