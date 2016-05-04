@@ -111,9 +111,9 @@ int BIGHYBRID_main (const char* plat, const char* depl, const char* conf, const 
 
  
     if (res_bighybrid == MSG_OK)     	
-  		return 0;
+  		exit(0);
     else
-	  	return 1;
+	  	exit(1);
 			
 
 }

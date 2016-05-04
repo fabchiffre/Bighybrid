@@ -263,8 +263,7 @@ int master_mra (int argc, char* argv[])
     /*
      FIXME SimGrid Error   
      finish_all_pids (); */
-    //return 0;
-    exit(0);
+    return 0;
 }
 
 /**
