@@ -8,7 +8,7 @@ DEFS = -L$(INSTALL_PATH)/lib
 LDADD = -lm -lsimgrid
 
 BIN = libbighybrid.a
-OBJ = common_bighybrid.o simcore_bighybrid.o dfs_mra.o master_mra.o worker_mra.o user_mra.o dfs_mrsg.o master_mrsg.o worker_mrsg.o user_mrsg.o
+OBJ = common_bighybrid.o simcore_bighybrid.o dfs_mra.o master_mra.o worker_mra.o user_mra.o dfs_mrsg.o master_mrsg.o worker_mrsg.o user_mrsg.o disk.o
 
 all: $(BIN)
 
